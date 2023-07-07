@@ -1,6 +1,0 @@
-Chapter 3
-=========
-
-
-
-This is the content of chap3.rst!
