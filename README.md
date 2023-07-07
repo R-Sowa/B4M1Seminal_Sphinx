@@ -1,1 +1,3 @@
 # B4M1Seminal_Sphinx
+
+SphinxでGithubにドキュメントを公開するための手順
