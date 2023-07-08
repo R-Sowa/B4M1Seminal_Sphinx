@@ -1,4 +1,26 @@
-Chapter 1
-=========
+########
+はじめに
+########
 
-これはchap1.rstの内容です。
+****************
+ドキュメント説明
+****************
+本ドキュメントでは、B4M1ゼミで曽和が担当する Sphinx を紹介し、Githubと連携させることでGithub上にマニュアルページを作成する方法を説明します。Sphinxを用いることで、このページのようなドキュメントを簡単に作成することができます。
+
+**参照**
+
+- `Sphinx documentation <https://www.sphinx-doc.org/ja/master/>`_
+
+- `とほほのPython入門 - Sphinx <https://www.sphinx-doc.org/ja/master/usage/restructuredtext/basics.html>`_ 
+
+- `Sphinxの使い方 <https://zenn.dev/y_mrok/books/sphinx-no-tsukaikata>`_
+
+**************
+使用バージョン
+**************
+OSはmacOS Ventura 13.0です。
+PythonはPython 3.11.2です。
+Sphinx 7.0.1を使用しています。
+
+
+

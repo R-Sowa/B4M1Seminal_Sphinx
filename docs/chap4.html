@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sphinxの使い方 &mdash; B4M1-Sphinx 1 ドキュメント</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="prev" title="Sphinxの導入とGithubとの連携" href="chap3.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            B4M1-Sphinx
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="chap1.html">はじめに</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap2.html">Sphinxとは</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap3.html">Sphinxの導入とGithubとの連携</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sphinxの使い方</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sphinx-quickstart">sphinx-quickstart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#index-rst">index.rst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rst">rstファイルのビルド</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#nojekyll">.nojekyll</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#github">GitHubへのプッシュ</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">B4M1-Sphinx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Sphinxの使い方</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/chap4.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sphinx">
+<h1>Sphinxの使い方<a class="headerlink" href="#sphinx" title="この見出しへのパーマリンク">¶</a></h1>
+<section id="sphinx-quickstart">
+<h2>sphinx-quickstart<a class="headerlink" href="#sphinx-quickstart" title="この見出しへのパーマリンク">¶</a></h2>
+<p><strong class="command">sphinx-quickstart</strong> コマンドを用いると、インタラクティブにいくつかの質問に答えるだけで、ドキュメント作成のために必要なSphinxのプロジェクトを作成することができます。 <code class="file docutils literal notranslate"><span class="pre">/YourRepository/Sphinx-files/</span></code> に移動して、実際に入力します。</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>sphinx-quickstart
+</pre></div>
+</div>
+<p>コマンドを実行すると、以下のように数問の質問をされますので、回答します。</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>以下の画像では <strong>test</strong> ディレクトリで実行していますが、読んでいる方の場合は、先に作成した <strong>docs</strong> でない方のディレクトリで実行することになると思います。</p>
+</div>
+<img alt="_images/sphinxquick.png" src="_images/sphinxquick.png" />
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>質問</p></td>
+<td><p>回答</p></td>
+</tr>
+<tr class="row-even"><td><p>ソースディレクトリとビルドディレクトリを分ける</p></td>
+<td><p>n (ここはnを選択してください。)</p></td>
+</tr>
+<tr class="row-odd"><td><p>プロジェクト名</p></td>
+<td><p>ドキュメントのタイトル</p></td>
+</tr>
+<tr class="row-even"><td><p>著者名 (複数可)</p></td>
+<td><p>ドキュメントの著者名</p></td>
+</tr>
+<tr class="row-odd"><td><p>プロジェクトのリリース</p></td>
+<td><p>バージョン番号 (1 など)</p></td>
+</tr>
+<tr class="row-even"><td><p>プロジェクトの言語</p></td>
+<td><p>ja</p></td>
+</tr>
+</tbody>
+</table>
+<p>以上の質問に答えると、 <code class="file docutils literal notranslate"><span class="pre">/YourRepository/Sphinx-files/</span></code> 以下にいくつかのファイルやディレクトリが生成されます。</p>
+<img alt="_images/quickstartfiles.png" src="_images/quickstartfiles.png" />
+<p>これらのうち、まずは <code class="file docutils literal notranslate"><span class="pre">Makefile</span></code> と <code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> を編集していきます。簡単にいうと、 <code class="file docutils literal notranslate"><span class="pre">Makefile</span></code> はmacOS (Linux)環境でドキュメントのビルドを行うためのバッチファイル ( <code class="file docutils literal notranslate"><span class="pre">make.bat</span></code> はWindows環境用です。Windows環境の方は、他のページも参考にしてください。)で、 <code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> が、ドキュメントをreSTで実際に作成するファイルになります。</p>
+<p><code class="file docutils literal notranslate"><span class="pre">Makefile</span></code> を開き、以下のように編集します。強調されている行がデフォルトからの変更行になっています。</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span> # Minimal makefile for Sphinx documentation
+ #
+
+ # You can set these variables from the command line, and also
+ # from the environment for the first two.
+ SPHINXOPTS    ?=
+ SPHINXBUILD   ?= sphinx-build
+ SOURCEDIR     = .
+<span class="hll"> BUILDDIR      = ../docs
+</span>
+ # Put it first so that <span class="s2">&quot;make&quot;</span> without argument is like <span class="s2">&quot;make help&quot;</span>.
+ help:
+     <span class="p">@</span>$(SPHINXBUILD) -M help <span class="s2">&quot;$(SOURCEDIR)&quot;</span> <span class="s2">&quot;$(BUILDDIR)&quot;</span> $(SPHINXOPTS) $(O)
+
+ .PHONY: help Makefile
+
+ # Catch-all target: route all unknown targets to Sphinx using the new
+ # <span class="s2">&quot;make mode&quot;</span> option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
+ %: Makefile
+<span class="hll">     <span class="p">@</span>$(SPHINXBUILD) -b $@ <span class="s2">&quot;$(SOURCEDIR)&quot;</span> <span class="s2">&quot;$(BUILDDIR)&quot;</span> $(SPHINXOPTS) $(O)
+</span></pre></div>
+</div>
+<p>ドキュメントをビルドするディレクトリをGithubの設定に合わせて <code class="file docutils literal notranslate"><span class="pre">/YourRepository/docs/</span></code> に変更しています。</p>
+</section>
+<section id="index-rst">
+<h2>index.rst<a class="headerlink" href="#index-rst" title="この見出しへのパーマリンク">¶</a></h2>
+<p>以上でドキュメント作成の準備ができました。 <code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> を編集することで、様々なドキュメントが作成できます。編集方法については今回は触れませんが、reSTと呼ばれるマークアップ言語を使用します。今回はGitHub Pagesにウェブサイトとして公開することを目標とし、先に進みます。</p>
+<p>現在、 <code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> に何らかの編集を行っていなければ、次のような内容であると思います。</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="cp">.. Test1 documentation master file, created by</span>
+<span class="cp">   sphinx-quickstart on Sat Jul  8 22:52:50 2023.</span>
+<span class="cp">   You can adapt this file completely to your liking, but it should at least</span>
+<span class="cp">   contain the root `toctree` directive.</span>
+
+<span class="gh">Welcome to Test1&#39;s documentation!</span>
+<span class="gh">=================================</span>
+
+<span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+   <span class="nc">:maxdepth:</span> 2
+   <span class="nc">:caption:</span> Contents:
+
+
+
+<span class="gh">Indices and tables</span>
+<span class="gh">==================</span>
+
+<span class="m">*</span> <span class="na">:ref:</span><span class="nv">`genindex`</span>
+<span class="m">*</span> <span class="na">:ref:</span><span class="nv">`modindex`</span>
+<span class="m">*</span> <span class="na">:ref:</span><span class="nv">`search`</span>
+</pre></div>
+</div>
+<p>一旦こちらの内容を編集せずに、これからビルドを行うことで <strong>html</strong> ファイルを作成します。</p>
+</section>
+<section id="rst">
+<h2>rstファイルのビルド<a class="headerlink" href="#rst" title="この見出しへのパーマリンク">¶</a></h2>
+<section id="nojekyll">
+<h3>.nojekyll<a class="headerlink" href="#nojekyll" title="この見出しへのパーマリンク">¶</a></h3>
+<p>ビルドを行う前に、 <code class="file docutils literal notranslate"><span class="pre">/YourRepository/docs/</span></code> の直下に <code class="file docutils literal notranslate"><span class="pre">.nojekyll</span></code> というファイルを作成する必要があります。というのは、GitHub Pagesが、 Jekyllというツールを使用しており、このままビルドを行うとJekyllの設定が優先されてしまうため、ページの見た目などが崩れてしまうからです。</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>touch<span class="w"> </span>.nojekyll
+</pre></div>
+</div>
+<p><code class="file docutils literal notranslate"><span class="pre">.nojekyll</span></code> ファイルを作成したら、 <code class="file docutils literal notranslate"><span class="pre">/YourRepository/Sphinx_files/</span></code> に移動して、 <strong class="command">make html</strong> というコマンドを実行することで、 <code class="file docutils literal notranslate"><span class="pre">/YourRepository/docs/</span></code> にhtmlファイルなどが作成されます。うまくいっていれば、 <strong class="command">open</strong> コマンドでhtmlファイルを開くことで、ページが確認できます。</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>html
+<span class="nb">cd</span><span class="w"> </span>../docs/
+open<span class="w"> </span>index.html
+</pre></div>
+</div>
+</section>
+</section>
+<section id="github">
+<h2>GitHubへのプッシュ<a class="headerlink" href="#github" title="この見出しへのパーマリンク">¶</a></h2>
+<p>望みのhtmlファイルを作成することができたら、GitHubにプッシュすることで、GitHub Pages上で公開できます。プッシュの具体的な手順については省略しますが、 <code class="file docutils literal notranslate"><span class="pre">/YourRepository/docs/</span></code> に移動して、全てのファイルをプッシュします。プッシュを行うことができたら、GitHubのリポジトリからGitHub Pagesの欄へと移動すると、画像のように作成したサイトのURLが掲載されているので、URLにアクセスすることでページを確認できます。</p>
+<img alt="_images/pagesURL.png" src="_images/pagesURL.png" />
+<img alt="_images/pageFIN.png" src="_images/pageFIN.png" />
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>画像では <strong>Chapter1</strong> などのコンテンツが存在していますが、これはデフォルトの <code class="file docutils literal notranslate"><span class="pre">/YourRepository/docs/</span></code> に編集を行っているので、このページの記載通りに行った場合は存在しませんが問題ありません。</p>
+</div>
+<p>GitHub Pagesを用いて、GitHubにSphinxのドキュメントを公開することができました。このページの内容を参考に、実際にドキュメントを作成する際は、 <a class="reference external" href="https://planset-study-sphinx.readthedocs.io/ja/latest/index.html">こちら</a> や <a class="reference external" href="https://www.sphinx-doc.org/ja/master/usage/restructuredtext/basics.html">こちら</a> などの文法が詳しく説明されているウェブサイトを併せて参照して頂けると良いと思います。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="chap3.html" class="btn btn-neutral float-left" title="Sphinxの導入とGithubとの連携" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, R-Sowa.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

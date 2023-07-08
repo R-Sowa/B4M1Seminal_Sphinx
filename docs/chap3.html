@@ -1,109 +1,191 @@
 <!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>Chapter 3 &#8212; B4M1-Sphinx 1 ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/translations.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sphinxの導入とGithubとの連携 &mdash; B4M1-Sphinx 1 ドキュメント</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
-    <link rel="prev" title="Chapter 2" href="chap2.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <link rel="next" title="Sphinxの使い方" href="chap4.html" />
+    <link rel="prev" title="Sphinxとは" href="chap2.html" /> 
+</head>
 
-  </head><body>
-  
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
           
+          
+          <a href="index.html" class="icon icon-home">
+            B4M1-Sphinx
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="chap1.html">はじめに</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap2.html">Sphinxとは</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sphinxの導入とGithubとの連携</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">前提</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sphinx">Sphinx</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">インストール</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">動作確認</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#github">Github</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">ドキュメント用のリポジトリ作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#githubclone">Githubリポジトリのclone</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap4.html">Sphinxの使い方</a></li>
+</ul>
 
-          <div class="body" role="main">
-            
-  <section id="chapter-3">
-<h1>Chapter 3<a class="headerlink" href="#chapter-3" title="この見出しへのパーマリンク">¶</a></h1>
-<p>これはchap3.rstの内容です。</p>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">B4M1-Sphinx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Sphinxの導入とGithubとの連携</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/chap3.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sphinxgithub">
+<h1>Sphinxの導入とGithubとの連携<a class="headerlink" href="#sphinxgithub" title="この見出しへのパーマリンク">¶</a></h1>
+<section id="id1">
+<h2>前提<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h2>
+<p>本ページでは、Sphinxをインストールしたのち、GitHub上のリポジトリと、Sphinxでドキュメントを作成するディレクトリを連携する所までの手順を説明します。致命的な環境依存性は少ないはずですが、自身の作業環境を以下に記します。</p>
+<ol class="arabic simple">
+<li><p>macOS (Windowsを使用されている場合は適宜読み換えて頂けると幸いです。)</p></li>
+<li><p>Pythonはインストール済み (PythonはSphinxの使用に必須です。)</p></li>
+<li><p>emacsをエディタとして使用</p></li>
+<li><p>GitHubはB4M1ゼミで作成したアカウントを使用</p></li>
+</ol>
+</section>
+<section id="sphinx">
+<h2>Sphinx<a class="headerlink" href="#sphinx" title="この見出しへのパーマリンク">¶</a></h2>
+<section id="id2">
+<h3>インストール<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Sphinxは <a class="reference external" href="https://pypi.org/project/Sphinx/">Python Package Index</a> に公開されているので、 <strong class="command">pip</strong> コマンドを使用してインストールできます。</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>Sphinx
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>Sphinxは多数のパッケージをインストールするため、仮想環境下でインストールしても良いかもしれません。参考までに、以下に新規の仮想環境にSphinxのみをインストールした場合のパッケージ一覧の画像を記載します。</p>
+<img alt="_images/piplist.png" src="_images/piplist.png" />
+</div>
+</section>
+<section id="id3">
+<h3>動作確認<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Sphinxが導入できたら、以下のコマンドで正しくインストールができたか確認をします。</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>show<span class="w"> </span>Sphinx
+</pre></div>
+</div>
+<img alt="_images/pipshow.png" src="_images/pipshow.png" />
+</section>
+</section>
+<section id="github">
+<h2>Github<a class="headerlink" href="#github" title="この見出しへのパーマリンク">¶</a></h2>
+<section id="id4">
+<h3>ドキュメント用のリポジトリ作成<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h3>
+<p>GitHubを用いてウェブページとしてドキュメントを公開する準備として、Github上に新たなリポジトリを作成する必要があります。
+GitHubで自分のアカウントにサインインし、右上の+ボタンをクリックして <strong>New repository</strong> を選択します。</p>
+<img alt="_images/newrepo.png" src="_images/newrepo.png" />
+<p>リポジトリの初期設定では、 <strong>Repository name</strong> にリポジトリ名を入力し、公開設定で <strong>Public</strong> を選択してください。また、 <strong>Add a README file</strong> にチェックを入れてください。</p>
+<img alt="_images/repooption.png" src="_images/repooption.png" />
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>設定の際 <strong>Add a README file</strong> のチェックを入れない場合、この後の設定が少し面倒なので、チェックを付けることを忘れないようにしてください。</p>
+</div>
+<p>リポジトリを作成したら、リポジトリのページから <strong>Settings</strong> → <strong>Pages</strong> と移動してください。</p>
+<img alt="_images/repopage.png" src="_images/repopage.png" />
+<img alt="_images/settingpage.png" src="_images/settingpage.png" />
+<p><strong>Pages</strong> 設定内部では、以下のように <strong>Source</strong> と <strong>Branch</strong> を設定して、 <strong>Save</strong> を押してください。なお、最初に <strong>Add a README file</strong> にチェックを入れなかった場合、ここで <strong>main</strong> ブランチが選択できないと思います。その際は、リポジトリに <strong>README.md</strong> を作成すると良いと思います。</p>
+<img alt="_images/pagesetting.png" src="_images/pagesetting.png" />
+<p>以上でGitHub側のリポジトリ作成が完了しました。次は、ローカル環境に本リポジトリをcloneします。</p>
+</section>
+<section id="githubclone">
+<h3>Githubリポジトリのclone<a class="headerlink" href="#githubclone" title="この見出しへのパーマリンク">¶</a></h3>
+<p>B4M1ゼミで行った時と同様に、自身のローカル環境に、作成したGitHubのリポジトリをcloneします。リポジトリをcloneしても問題ないディレクトリで以下のコマンドを実行します。</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:YourName/RepositoryName.git
+</pre></div>
+</div>
+<p>cloneが終了したら、リポジトリと同じ名前のディレクトリが生成されているはずです。そのディレクトリ直下に、 <strong>docs</strong> という名前のディレクトリと、好きな名前のもう1つのディレクトリ (ここでは便宜上 <strong>Sphinx_files</strong> としますが、好きな名前で問題ありません。)を作成します。</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>docs
+mkdir<span class="w"> </span>Sphinx_files
+</pre></div>
+</div>
+<p>これからSphinxでドキュメントを作成するにあたり、 <strong>Sphinx_files</strong> ディレクトリ直下で作業を行います。 <strong>docs</strong> ディレクトリには、GitHub Pagesで公開する様々なファイルなどが今後保存されます。</p>
+</section>
+</section>
 </section>
 
 
+           </div>
           </div>
-          
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="chap2.html" class="btn btn-neutral float-left" title="Sphinxとは" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="chap4.html" class="btn btn-neutral float-right" title="Sphinxの使い方" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, R-Sowa.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">B4M1-Sphinx</a></h1>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-
-
-
-
-
-
-
-<h3>ナビゲーション</h3>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="chap1.html">Chapter 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chap2.html">Chapter 2</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Chapter 3</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="chap2.html" title="前の章へ">Chapter 2</a></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">クイック検索</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="検索" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2023, R-Sowa.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.0.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
-      
-      |
-      <a href="_sources/chap3.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
-    
-
-    
-  </body>
+</body>
 </html>

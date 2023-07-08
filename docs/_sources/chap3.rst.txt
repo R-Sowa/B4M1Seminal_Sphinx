@@ -1,4 +1,91 @@
-Chapter 3
-=========
+##############################
+Sphinxの導入とGithubとの連携
+##############################
 
-これはchap3.rstの内容です。
+*****
+前提
+*****
+本ページでは、Sphinxをインストールしたのち、GitHub上のリポジトリと、Sphinxでドキュメントを作成するディレクトリを連携する所までの手順を説明します。致命的な環境依存性は少ないはずですが、自身の作業環境を以下に記します。
+
+1. macOS (Windowsを使用されている場合は適宜読み換えて頂けると幸いです。)
+2. Pythonはインストール済み (PythonはSphinxの使用に必須です。)
+3. emacsをエディタとして使用
+4. GitHubはB4M1ゼミで作成したアカウントを使用
+
+*******
+Sphinx
+*******
+
+インストール
+============
+Sphinxは `Python Package Index <https://pypi.org/project/Sphinx/>`_ に公開されているので、 :command:`pip` コマンドを使用してインストールできます。
+
+.. code-block:: zsh
+
+   pip install -U Sphinx
+
+.. note:: 
+
+   Sphinxは多数のパッケージをインストールするため、仮想環境下でインストールしても良いかもしれません。参考までに、以下に新規の仮想環境にSphinxのみをインストールした場合のパッケージ一覧の画像を記載します。
+
+   .. image:: ./piplist.png
+   
+動作確認
+========
+Sphinxが導入できたら、以下のコマンドで正しくインストールができたか確認をします。
+
+.. code-block:: zsh
+
+   pip show Sphinx
+
+.. image:: ./pipshow.png
+   
+*******
+Github
+*******
+
+ドキュメント用のリポジトリ作成
+==============================
+GitHubを用いてウェブページとしてドキュメントを公開する準備として、Github上に新たなリポジトリを作成する必要があります。
+GitHubで自分のアカウントにサインインし、右上の+ボタンをクリックして **New repository** を選択します。
+
+.. image:: ./newrepo.png
+
+リポジトリの初期設定では、 **Repository name** にリポジトリ名を入力し、公開設定で **Public** を選択してください。また、 **Add a README file** にチェックを入れてください。
+
+.. image:: ./repooption.png
+
+.. attention::
+
+   設定の際 **Add a README file** のチェックを入れない場合、この後の設定が少し面倒なので、チェックを付けることを忘れないようにしてください。
+
+リポジトリを作成したら、リポジトリのページから **Settings** → **Pages** と移動してください。
+
+.. image:: ./repopage.png
+
+.. image:: ./settingpage.png
+
+**Pages** 設定内部では、以下のように **Source** と **Branch** を設定して、 **Save** を押してください。なお、最初に **Add a README file** にチェックを入れなかった場合、ここで **main** ブランチが選択できないと思います。その際は、リポジトリに **README.md** を作成すると良いと思います。
+
+.. image:: ./pagesetting.png
+
+以上でGitHub側のリポジトリ作成が完了しました。次は、ローカル環境に本リポジトリをcloneします。
+
+Githubリポジトリのclone
+=======================
+B4M1ゼミで行った時と同様に、自身のローカル環境に、作成したGitHubのリポジトリをcloneします。リポジトリをcloneしても問題ないディレクトリで以下のコマンドを実行します。
+
+.. code-block:: zsh
+
+   git clone git@github.com:YourName/RepositoryName.git
+
+cloneが終了したら、リポジトリと同じ名前のディレクトリが生成されているはずです。そのディレクトリ直下に、 **docs** という名前のディレクトリと、好きな名前のもう1つのディレクトリ (ここでは便宜上 **Sphinx_files** としますが、好きな名前で問題ありません。)を作成します。
+
+.. code-block:: zsh
+
+   mkdir docs
+   mkdir Sphinx_files
+
+これからSphinxでドキュメントを作成するにあたり、 **Sphinx_files** ディレクトリ直下で作業を行います。 **docs** ディレクトリには、GitHub Pagesで公開する様々なファイルなどが今後保存されます。
+
+
