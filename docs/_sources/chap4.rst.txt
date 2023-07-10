@@ -31,7 +31,7 @@ sphinx-quickstart
 
 .. image:: ./quickstartfiles.png
 
-これらのうち、まずは :file:`Makefile` と :file:`index.rst` を編集していきます。簡単にいうと、 :file:`Makefile` はmacOS (Linux)環境でドキュメントのビルドを行うためのバッチファイル ( :file:`make.bat` はWindows環境用です。Windows環境の方は、他のページも参考にしてください。)で、 :file:`index.rst` が、ドキュメントをreSTで実際に作成するファイルになります。
+これらのうち、まずは :file:`Makefile` と :file:`index.rst` を編集していきます。簡単にいうと、 :file:`Makefile` はmacOS (Linux)環境でドキュメントのビルドを行うためのバッチファイル ( :file:`make.bat` はWindows環境用です。Windows環境の方は、他のページも参考にしてください。)で、 :file:`index.rst` が、ドキュメントをreSTで実際に作成するファイルになります。x
 
 :file:`Makefile` を開き、以下のように編集します。強調されている行がデフォルトからの変更行になっています。
 
@@ -127,6 +127,4 @@ GitHubへのプッシュ
 .. note::
 
    画像では **Chapter1** などのコンテンツが存在していますが、これはデフォルトの :file:`/YourRepository/docs/` に編集を行っているので、このページの記載通りに行った場合は存在しませんが問題ありません。
-
-
-GitHub Pagesを用いて、GitHubにSphinxのドキュメントを公開することができました。このページの内容を参考に、実際にドキュメントを作成する際は、 `こちら <https://planset-study-sphinx.readthedocs.io/ja/latest/index.html>`_ や `こちら <https://www.sphinx-doc.org/ja/master/usage/restructuredtext/basics.html>`_ などの文法が詳しく説明されているウェブサイトを併せて参照して頂けると良いと思います。
+   GitHub Pagesを用いて、GitHubにSphinxのドキュメントを公開することができました。このページの内容を参考に、実際にドキュメントを作成する際は、 `こちら <https://planset-study-sphinx.readthedocs.io/ja/latest/index.html>`_ や `こちら <https://www.sphinx-doc.org/ja/master/usage/restructuredtext/basics.html>`_ などの文法が詳しく説明されているウェブサイトを併せて参照して頂けると良いと思います。

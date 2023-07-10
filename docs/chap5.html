@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pythonのソースコードでマニュアル作成 &mdash; B4M1-Sphinx 1 ドキュメント</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="prev" title="Sphinxの使い方" href="chap4.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            B4M1-Sphinx
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="chap1.html">はじめに</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap2.html">Sphinxとは</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap3.html">Sphinxの導入とGithubとの連携</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap4.html">Sphinxの使い方</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Pythonのソースコードでマニュアル作成</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sphinx-apidoc">sphinx-apidoc</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">B4M1-Sphinx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Pythonのソースコードでマニュアル作成</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/chap5.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="python">
+<h1>Pythonのソースコードでマニュアル作成<a class="headerlink" href="#python" title="この見出しへのパーマリンク">¶</a></h1>
+<section id="sphinx-apidoc">
+<h2>sphinx-apidoc<a class="headerlink" href="#sphinx-apidoc" title="この見出しへのパーマリンク">¶</a></h2>
+<p><strong class="command">sphinx-apidoc</strong> コマンドは、Pythonのソースコードのモジュールに用意されたドキュメンテーション文字列と呼ばれる部分を自動で認識し、ビルドのためのソースファイルを生成してくれます。例として、新たなGithubのリポジトリを作成し、クローンしたローカル環境下で <code class="file docutils literal notranslate"><span class="pre">docs</span></code> ディレクトリと <code class="file docutils literal notranslate"><span class="pre">src</span></code> ディレクトリを作成します。そして、 <code class="file docutils literal notranslate"><span class="pre">src</span></code> をカレントディレクトリとして、Pythonのソースコードを作成します。ここでは例として、下のようなコードとします。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; This is an example Code for docstring and Sphinx.</span>
+
+<span class="sd">Addition,Subtraction,Multiplication,Division.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; sum 2 float values.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (float): 1st argument</span>
+<span class="sd">        y (float): 2nd argument</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: summation of x and y</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        Usage</span>
+
+<span class="sd">        &gt;&gt;&gt; print(example.add(7.7,4.4))</span>
+<span class="sd">        12.1</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="k">def</span> <span class="nf">sub</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; subtract y from x.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (float): 1st argument</span>
+<span class="sd">        y (float): 2nd argument</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: x minus y</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        Usage</span>
+
+<span class="sd">        &gt;&gt;&gt; print(example.sub(7.7,4.4))</span>
+<span class="sd">        3.3</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">return</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span>
+
+<span class="k">def</span> <span class="nf">multiple</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; multiply x by y.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (float): 1st argument</span>
+<span class="sd">        y (float): 2nd argument</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: x multiplied by y</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        Usage</span>
+
+<span class="sd">        &gt;&gt;&gt; print(example.multiple(7.7,4.4))</span>
+<span class="sd">        33.88</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+
+<span class="k">def</span> <span class="nf">div</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; divide x by y.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (float): 1st argument</span>
+<span class="sd">        y (float): 2nd argument (Not equal to zero.)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: x minus y</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        Usage</span>
+
+<span class="sd">        &gt;&gt;&gt; print(example.sub(7.7,4.4))</span>
+<span class="sd">        1.75</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">if</span> <span class="n">y</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;It cannot be divided by zero.&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is the module for four-arithmetic-calculation. Please import.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>ここで、モジュールの部分に、コメントとして説明文が書かれています。これをドキュメンテーション文字列 (docstring) といいます。詳しくは、 <a class="reference external" href="https://note.nkmk.me/python-docstring/">ドキュメンテーション文字列について説明されているWebサイト</a> をご覧ください。このようにドキュメンテーション文字列を持ったソースコードを作成したら、 <code class="file docutils literal notranslate"><span class="pre">src</span></code> ディレクトリに、新たに <code class="file docutils literal notranslate"><span class="pre">rst_files</span></code> ディレクトリを作成します。今後、この <code class="file docutils literal notranslate"><span class="pre">rst_files</span></code> ディレクトリに、rstファイルを作成します。</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>rst_files
+</pre></div>
+</div>
+<p><code class="file docutils literal notranslate"><span class="pre">rst_files</span></code> ディレクトリを作成したら、 <code class="file docutils literal notranslate"><span class="pre">src</span></code> をカレントディレクトリとして、 <strong class="command">sphinx-apidoc</strong> コマンドを実行します。ここで、オプションとして以下のように指定してください。オプションについては <a class="reference external" href="https://www.sphinx-doc.org/ja/master/man/sphinx-apidoc.html">公式マニュアル</a> を参照してください。</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>sphinx-apidoc<span class="w"> </span>-F<span class="w"> </span>-H<span class="w"> </span>ProjectName<span class="w"> </span>-A<span class="w"> </span>AuthorName<span class="w"> </span>-V<span class="w"> </span>VersionNumber<span class="w"> </span>-o<span class="w"> </span>src/rst_files<span class="w"> </span>src
+</pre></div>
+</div>
+<p>このコマンドを実行すると、 <code class="file docutils literal notranslate"><span class="pre">rst_files</span></code> 以下に、プロジェクト作成に必要なファイル一式が作成されているはずです。 <code class="file docutils literal notranslate"><span class="pre">rst_files</span></code> に移動して、 <code class="file docutils literal notranslate"><span class="pre">conf.py</span></code> を開き、以下のように編集します。</p>
+<ol class="arabic simple">
+<li><p>以下の3行を追加</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;/Users/sowa/Github/B4M1_Python_Doc_Sphinx/src&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>extensionsの部分に <strong>'sphinx.ext.napoleon'</strong> の1行を追加</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+ <span class="s1">&#39;sphinx.ext.autodoc&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;sphinx.ext.viewcode&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;sphinx.ext.todo&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;sphinx.ext.napoleon&#39;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>次に <code class="file docutils literal notranslate"><span class="pre">Makefile</span></code> を開き、ドキュメントを作成した際と同様に、 <strong>BUILDDIR</strong> を <strong>docs</strong> にあたるよう変更し、ビルドコマンドの設定も同様に変更します。</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>%<span class="p">:</span> <span class="nl">Makefile</span>
+          <span class="p">@</span>$(SPHINXBUILD) -b $@ <span class="s2">&quot;$(SOURCEDIR)&quot;</span> <span class="s2">&quot;$(BUILDDIR)&quot;</span> $(SPHINXOPTS) $(O)
+</pre></div>
+</div>
+<p>そして <code class="file docutils literal notranslate"><span class="pre">rst_files</span></code> において <strong class="command">make html</strong> コマンドを実行し、 <code class="file docutils literal notranslate"><span class="pre">docs</span></code> ディレクトリに生成されたファイルをGitHubにプッシュすると、 <a class="reference external" href="https://r-sowa.github.io/B4M1_Python_Doc_Sphinx/index.html">このように</a> ソースコードのマニュアルが作成できます。</p>
+<img alt="_images/apidoc.png" src="_images/apidoc.png" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="chap4.html" class="btn btn-neutral float-left" title="Sphinxの使い方" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, R-Sowa.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

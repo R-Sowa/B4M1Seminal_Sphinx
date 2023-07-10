@@ -1,0 +1,143 @@
+##########################################
+Pythonのソースコードでマニュアル作成
+##########################################
+
+*****************
+sphinx-apidoc
+*****************
+:command:`sphinx-apidoc` コマンドは、Pythonのソースコードのモジュールに用意されたドキュメンテーション文字列と呼ばれる部分を自動で認識し、ビルドのためのソースファイルを生成してくれます。例として、新たなGithubのリポジトリを作成し、クローンしたローカル環境下で :file:`docs` ディレクトリと :file:`src` ディレクトリを作成します。そして、 :file:`src` をカレントディレクトリとして、Pythonのソースコードを作成します。ここでは例として、下のようなコードとします。
+
+.. code-block:: python
+
+   """ This is an example Code for docstring and Sphinx.
+
+   Addition,Subtraction,Multiplication,Division.
+   """
+
+
+   def add(x,y):
+       ''' sum 2 float values.
+
+       Args:
+           x (float): 1st argument
+           y (float): 2nd argument
+
+       Returns:
+           float: summation of x and y
+
+       Examples:
+           Usage
+
+           >>> print(example.add(7.7,4.4))
+           12.1
+       '''
+
+       return x + y
+    
+   def sub(x,y):
+       ''' subtract y from x.
+
+       Args:
+           x (float): 1st argument
+           y (float): 2nd argument
+
+       Returns:
+           float: x minus y
+
+       Examples:
+           Usage
+
+           >>> print(example.sub(7.7,4.4))
+           3.3
+       '''
+
+       return x - y
+
+   def multiple(x,y):
+       ''' multiply x by y.
+
+       Args:
+           x (float): 1st argument
+           y (float): 2nd argument
+
+       Returns:
+           float: x multiplied by y
+
+       Examples:
+           Usage
+
+           >>> print(example.multiple(7.7,4.4))
+           33.88
+       '''
+
+       return x * y
+
+   def div(x,y):
+       ''' divide x by y.
+
+       Args:
+           x (float): 1st argument
+           y (float): 2nd argument (Not equal to zero.)
+
+       Returns:
+           float: x minus y
+
+       Examples:
+           Usage
+
+           >>> print(example.sub(7.7,4.4))
+           1.75
+       '''
+
+       if y != 0:
+           return x / y
+       else:
+           print('It cannot be divided by zero.')
+
+   if __name__ == '__main__':
+       print("This is the module for four-arithmetic-calculation. Please import.")
+    
+ここで、モジュールの部分に、コメントとして説明文が書かれています。これをドキュメンテーション文字列 (docstring) といいます。詳しくは、 `ドキュメンテーション文字列について説明されているWebサイト <https://note.nkmk.me/python-docstring/>`_ をご覧ください。このようにドキュメンテーション文字列を持ったソースコードを作成したら、 :file:`src` ディレクトリに、新たに :file:`rst_files` ディレクトリを作成します。今後、この :file:`rst_files` ディレクトリに、rstファイルを作成します。
+
+.. code-block:: zsh
+
+   mkdir rst_files
+
+:file:`rst_files` ディレクトリを作成したら、 :file:`src` をカレントディレクトリとして、 :command:`sphinx-apidoc` コマンドを実行します。ここで、オプションとして以下のように指定してください。オプションについては `公式マニュアル <https://www.sphinx-doc.org/ja/master/man/sphinx-apidoc.html>`_ を参照してください。
+
+.. code-block:: zsh
+
+   sphinx-apidoc -F -H ProjectName -A AuthorName -V VersionNumber -o src/rst_files src
+
+このコマンドを実行すると、 :file:`rst_files` 以下に、プロジェクト作成に必要なファイル一式が作成されているはずです。 :file:`rst_files` に移動して、 :file:`conf.py` を開き、以下のように編集します。
+
+1. 以下の3行を追加
+
+.. code-block:: python
+
+   import os
+   import sys
+   sys.path.insert(0, '/Users/sowa/Github/B4M1_Python_Doc_Sphinx/src')
+
+2. extensionsの部分に **'sphinx.ext.napoleon'** の1行を追加
+
+.. code-block:: python
+
+   extensions = [
+    'sphinx.ext.autodoc',
+    'sphinx.ext.viewcode',
+    'sphinx.ext.todo',
+    'sphinx.ext.napoleon'
+   ]
+
+次に :file:`Makefile` を開き、ドキュメントを作成した際と同様に、 **BUILDDIR** を **docs** にあたるよう変更し、ビルドコマンドの設定も同様に変更します。
+
+.. code-block:: bat
+
+      %: Makefile
+          	@$(SPHINXBUILD) -b $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+そして :file:`rst_files` において :command:`make html` コマンドを実行し、 :file:`docs` ディレクトリに生成されたファイルをGitHubにプッシュすると、 `このように <https://r-sowa.github.io/B4M1_Python_Doc_Sphinx/index.html>`_ ソースコードのマニュアルが作成できます。
+
+.. image:: ./apidoc.png
+

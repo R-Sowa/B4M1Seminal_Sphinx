@@ -18,6 +18,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="Pythonのソースコードでマニュアル作成" href="chap5.html" />
     <link rel="prev" title="Sphinxの導入とGithubとの連携" href="chap3.html" /> 
 </head>
 
@@ -55,6 +56,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#github">GitHubへのプッシュ</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="chap5.html">Pythonのソースコードでマニュアル作成</a></li>
 </ul>
 
         </div>
@@ -119,7 +121,7 @@
 </table>
 <p>以上の質問に答えると、 <code class="file docutils literal notranslate"><span class="pre">/YourRepository/Sphinx-files/</span></code> 以下にいくつかのファイルやディレクトリが生成されます。</p>
 <img alt="_images/quickstartfiles.png" src="_images/quickstartfiles.png" />
-<p>これらのうち、まずは <code class="file docutils literal notranslate"><span class="pre">Makefile</span></code> と <code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> を編集していきます。簡単にいうと、 <code class="file docutils literal notranslate"><span class="pre">Makefile</span></code> はmacOS (Linux)環境でドキュメントのビルドを行うためのバッチファイル ( <code class="file docutils literal notranslate"><span class="pre">make.bat</span></code> はWindows環境用です。Windows環境の方は、他のページも参考にしてください。)で、 <code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> が、ドキュメントをreSTで実際に作成するファイルになります。</p>
+<p>これらのうち、まずは <code class="file docutils literal notranslate"><span class="pre">Makefile</span></code> と <code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> を編集していきます。簡単にいうと、 <code class="file docutils literal notranslate"><span class="pre">Makefile</span></code> はmacOS (Linux)環境でドキュメントのビルドを行うためのバッチファイル ( <code class="file docutils literal notranslate"><span class="pre">make.bat</span></code> はWindows環境用です。Windows環境の方は、他のページも参考にしてください。)で、 <code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> が、ドキュメントをreSTで実際に作成するファイルになります。x</p>
 <p><code class="file docutils literal notranslate"><span class="pre">Makefile</span></code> を開き、以下のように編集します。強調されている行がデフォルトからの変更行になっています。</p>
 <div class="highlight-bat notranslate"><div class="highlight"><pre><span></span> # Minimal makefile for Sphinx documentation
  #
@@ -196,9 +198,9 @@ open<span class="w"> </span>index.html
 <img alt="_images/pageFIN.png" src="_images/pageFIN.png" />
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>画像では <strong>Chapter1</strong> などのコンテンツが存在していますが、これはデフォルトの <code class="file docutils literal notranslate"><span class="pre">/YourRepository/docs/</span></code> に編集を行っているので、このページの記載通りに行った場合は存在しませんが問題ありません。</p>
+<p>画像では <strong>Chapter1</strong> などのコンテンツが存在していますが、これはデフォルトの <code class="file docutils literal notranslate"><span class="pre">/YourRepository/docs/</span></code> に編集を行っているので、このページの記載通りに行った場合は存在しませんが問題ありません。
+GitHub Pagesを用いて、GitHubにSphinxのドキュメントを公開することができました。このページの内容を参考に、実際にドキュメントを作成する際は、 <a class="reference external" href="https://planset-study-sphinx.readthedocs.io/ja/latest/index.html">こちら</a> や <a class="reference external" href="https://www.sphinx-doc.org/ja/master/usage/restructuredtext/basics.html">こちら</a> などの文法が詳しく説明されているウェブサイトを併せて参照して頂けると良いと思います。</p>
 </div>
-<p>GitHub Pagesを用いて、GitHubにSphinxのドキュメントを公開することができました。このページの内容を参考に、実際にドキュメントを作成する際は、 <a class="reference external" href="https://planset-study-sphinx.readthedocs.io/ja/latest/index.html">こちら</a> や <a class="reference external" href="https://www.sphinx-doc.org/ja/master/usage/restructuredtext/basics.html">こちら</a> などの文法が詳しく説明されているウェブサイトを併せて参照して頂けると良いと思います。</p>
 </section>
 </section>
 
@@ -207,6 +209,7 @@ open<span class="w"> </span>index.html
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="chap3.html" class="btn btn-neutral float-left" title="Sphinxの導入とGithubとの連携" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="chap5.html" class="btn btn-neutral float-right" title="Pythonのソースコードでマニュアル作成" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
