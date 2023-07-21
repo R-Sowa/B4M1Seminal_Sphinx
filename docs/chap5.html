@@ -175,7 +175,7 @@
 </pre></div>
 </div>
 <p><code class="file docutils literal notranslate"><span class="pre">rst_files</span></code> ディレクトリを作成したら、 <code class="file docutils literal notranslate"><span class="pre">src</span></code> をカレントディレクトリとして、 <strong class="command">sphinx-apidoc</strong> コマンドを実行します。ここで、オプションとして以下のように指定してください。オプションについては <a class="reference external" href="https://www.sphinx-doc.org/ja/master/man/sphinx-apidoc.html">公式マニュアル</a> を参照してください。</p>
-<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>sphinx-apidoc<span class="w"> </span>-F<span class="w"> </span>-H<span class="w"> </span>ProjectName<span class="w"> </span>-A<span class="w"> </span>AuthorName<span class="w"> </span>-V<span class="w"> </span>VersionNumber<span class="w"> </span>-o<span class="w"> </span>src/rst_files<span class="w"> </span>src
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>sphinx-apidoc<span class="w"> </span>-F<span class="w"> </span>-H<span class="w"> </span>ProjectName<span class="w"> </span>-A<span class="w"> </span>AuthorName<span class="w"> </span>-V<span class="w"> </span>VersionNumber<span class="w"> </span>-o<span class="w"> </span>./rst_files<span class="w"> </span>.
 </pre></div>
 </div>
 <p>このコマンドを実行すると、 <code class="file docutils literal notranslate"><span class="pre">rst_files</span></code> 以下に、プロジェクト作成に必要なファイル一式が作成されているはずです。 <code class="file docutils literal notranslate"><span class="pre">rst_files</span></code> に移動して、 <code class="file docutils literal notranslate"><span class="pre">conf.py</span></code> を開き、以下のように編集します。</p>

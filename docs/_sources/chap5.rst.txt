@@ -107,7 +107,7 @@ sphinx-apidoc
 
 .. code-block:: zsh
 
-   sphinx-apidoc -F -H ProjectName -A AuthorName -V VersionNumber -o src/rst_files src
+   sphinx-apidoc -F -H ProjectName -A AuthorName -V VersionNumber -o ./rst_files .
 
 このコマンドを実行すると、 :file:`rst_files` 以下に、プロジェクト作成に必要なファイル一式が作成されているはずです。 :file:`rst_files` に移動して、 :file:`conf.py` を開き、以下のように編集します。
 
